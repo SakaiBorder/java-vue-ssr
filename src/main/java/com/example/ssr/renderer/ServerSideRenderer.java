@@ -27,7 +27,7 @@ public class ServerSideRenderer {
         ScriptContext context = getContext();
         Bindings engineScope = engineSetting(engine, context);
 
-		engineScope.put("route", route);
+        engineScope.put("route", route);
         engine.eval(read("static/js/server.js"), context);
         
 		return context.getAttribute("rendered").toString();
@@ -71,15 +71,15 @@ public class ServerSideRenderer {
     }
 
     private String all(BufferedReader reader) throws IOException {
-		StringBuilder builder = new StringBuilder();
-		String string;
+        StringBuilder builder = new StringBuilder();
+        String string;
 
-		string = reader.readLine();
-		while (string != null){
-			builder.append(string + System.getProperty("line.separator"));
-			string = reader.readLine();
-		}
-		return builder.toString();
+        string = reader.readLine();
+        while (string != null){
+            builder.append(string + System.getProperty("line.separator"));
+            string = reader.readLine();
+        }
+        return builder.toString();
     }
     
     private Reader read(String path) {

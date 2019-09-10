@@ -9,11 +9,11 @@ const store = new Vuex.Store({
         word: ''
     },
     actions: {
-        getWordAction(context) {
+        getWordAction(context, pageId) {
             const payload = {
                 message: ''
             }
-            axios.get('http://localhost:8080/api/get-word')
+            axios.get(`http://localhost:8080/api/get-word/${pageId}`)
             .then((response) => {
                 payload.message = response.data.word
                 context.commit('getWord', payload)

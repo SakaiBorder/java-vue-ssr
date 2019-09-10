@@ -8,10 +8,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class WordService {
 
-    public Map<String, String> getWord() {
+    public Map<String, String> getWord(String pageId) {
+
         Map<String, String> map = new HashMap<String, String>();
-        
-        map.put("word", "hello, world");
+
+        if (pageId.equals("firstPage")) {
+            map.put("word", "first page data");
+        } else {
+            map.put("word", "second page data");
+        }
 
         return map;
     }

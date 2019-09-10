@@ -23,6 +23,7 @@ public class IndexController {
         String html = renderService.renderPage("/");
 
         model.addAttribute("rendered", html);
+        model.addAttribute("state", wordService.getWord("firstPage"));
 
         return "index";
     }
@@ -32,7 +33,7 @@ public class IndexController {
         String html = renderService.renderPage("/second");
 
         model.addAttribute("rendered", html);
-        model.addAttribute("state", wordService.getWord());
+        model.addAttribute("state", wordService.getWord("secondPage"));
 
         return "index";
     }

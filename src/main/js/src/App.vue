@@ -1,17 +1,22 @@
 <template>
     <div id="app">
-        <div>App</div>
-        <div>
+        <Logos></Logos>
+        <h1>Vue.js + Spring Boot SSR</h1>
+        <main>
             <router-view></router-view>
-        </div>
+        </main>
         <router-link to="/">top</router-link>
         <router-link to="/second">second</router-link>
     </div>
 </template>
 
 <script>
-export default {
+import Logos from './components/Logos.vue'
 
+export default {
+    components: {
+        Logos
+    },
 }
 </script>
 
@@ -24,6 +29,5 @@ html, body {
     margin: auto;
     text-align: center;
 }
-
 </style>
 
