@@ -3,16 +3,10 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
         app: path.resolve('src/main/js/src', 'entry-client.js'),
         server: path.resolve('src/main/js/src', 'entry-server.js')
-    },
-    node: {
-        child_process: 'empty',
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty',
     },
     output: {
         filename: '[name].js',
@@ -22,7 +16,14 @@ module.exports = {
         alias: {
             vue: 'vue/dist/vue.js'
         },
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".json"],
+        fallback : {
+            fs: false,
+            child_process: false,
+            net: false,
+            tls: false,
+            dns: false,
+        }
     },
     module: {
         rules: [
